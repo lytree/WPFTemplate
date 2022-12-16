@@ -1,0 +1,11 @@
+﻿<Border x:Class="WPFTemplate.Layout.MainWindowContent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:local="clr-namespace:WPFTemplate.Layout"
+      mc:Ignorable="d" 
+       BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}" Background="{StaticResource CloudDrawingBrush}">
+
+</Border>
