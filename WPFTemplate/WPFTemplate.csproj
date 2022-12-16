@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Folder Include="Resource\" />
+    <Folder Include="Layout\" />
+    <Folder Include="Views\" />
+    <Folder Include="VIewsModel\" />
   </ItemGroup>
  <ItemGroup>
     <None Remove="Data\LeftItemInfo.json" />
