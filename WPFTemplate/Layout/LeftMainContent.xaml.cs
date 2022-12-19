@@ -6,8 +6,13 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Threading;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using HandyControl.Data;
 using HandyControl.Tools;
+using WPFTemplate.Data;
+using WPFTemplate.Tools.Helper;
+using WPFTemplate.Views;
+using WPFTemplate.ViewsModel;
 
 namespace WPFTemplate.Layout;
 
@@ -19,11 +24,13 @@ public partial class LeftMainContent
     public LeftMainContent()
     {
         InitializeComponent();
+        DataContext = new LeftMainContentViewsModel();
     }
-
+   
     private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         throw new NotImplementedException();
     }
+   
 }
 

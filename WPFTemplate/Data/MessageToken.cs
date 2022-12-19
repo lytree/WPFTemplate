@@ -7,8 +7,10 @@ using HandyControl.Themes;
 
 namespace WPFTemplate.Data
 {
+
     class MessageToken
     {
+        public static readonly string Home = nameof(Home);
         public sealed class ClearLeftSelected
         {
             public ClearLeftSelected(object obj)

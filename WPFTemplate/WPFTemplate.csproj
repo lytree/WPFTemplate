@@ -6,10 +6,6 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<Folder Include="Views\" />
-	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Resources\Img\1.jpg">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
