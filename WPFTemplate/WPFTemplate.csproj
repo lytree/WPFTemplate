@@ -9,8 +9,6 @@
 
 	<ItemGroup>
 		<Folder Include="Views\" />
-		<Folder Include="VIewsModel\" />
-		<Folder Include="UserControl\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Resources\Img\1.jpg">

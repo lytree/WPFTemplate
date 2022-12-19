@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFTemplate.Data;
+using WPFTemplate.Layout;
 using WPFTemplate.Tools.Helper;
 
 namespace WPFTemplate

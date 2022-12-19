@@ -1,28 +1,76 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Media.Animation;
+using HandyControl.Tools;
+using HandyControl.Tools.Extension;
 
-namespace WPFTemplate.Layout
+namespace WPFTemplate.Layout;
+
+/// <summary>
+/// MainWindowContent.xaml 的交互逻辑
+/// </summary>
+public partial class MainWindowContent
 {
-    /// <summary>
-    /// MainWindowContent.xaml 的交互逻辑
-    /// </summary>
-    public partial class MainWindowContent : Page
+    private GridLength _columnDefinitionWidth;
+    public MainWindowContent()
     {
-        public MainWindowContent()
+        InitializeComponent();
+    }
+
+    private void OnLeftMainContentShiftOut(object sender, RoutedEventArgs e)
+    {
+        ButtonShiftOut.Collapse();
+        GridSplitter.IsEnabled = false;
+
+        double targetValue = -ColumnDefinitionLeft.Width.Value;
+        _columnDefinitionWidth = ColumnDefinitionLeft.Width;
+
+        DoubleAnimation animation = AnimationHelper.CreateAnimation(targetValue, milliseconds: 100);
+        animation.FillBehavior = FillBehavior.Stop;
+        animation.Completed += OnAnimationCompleted;
+
+        LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
+
+        void OnAnimationCompleted(object _, EventArgs args)
         {
-            InitializeComponent();
+            animation.Completed -= OnAnimationCompleted;
+            LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
+
+            Grid.SetColumn(MainContent, 0);
+            Grid.SetColumnSpan(MainContent, 2);
+
+            ColumnDefinitionLeft.MinWidth = 0;
+            ColumnDefinitionLeft.Width = new GridLength();
+            ButtonShiftIn.Show();
+        }
+    }
+
+    private void OnLeftMainContentShiftIn(object sender, RoutedEventArgs e)
+    {
+        ButtonShiftIn.Collapse();
+        GridSplitter.IsEnabled = true;
+
+        double targetValue = ColumnDefinitionLeft.Width.Value;
+
+        DoubleAnimation animation = AnimationHelper.CreateAnimation(targetValue, milliseconds: 100);
+        animation.FillBehavior = FillBehavior.Stop;
+        animation.Completed += OnAnimationCompleted;
+        LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
+
+        void OnAnimationCompleted(object _, EventArgs args)
+        {
+            animation.Completed -= OnAnimationCompleted;
+            LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
+
+            Grid.SetColumn(MainContent, 1);
+            Grid.SetColumnSpan(MainContent, 1);
+
+            ColumnDefinitionLeft.MinWidth = 240;
+            ColumnDefinitionLeft.Width = _columnDefinitionWidth;
+            ButtonShiftOut.Show();
         }
     }
 }
+

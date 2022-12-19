@@ -12,17 +12,44 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CommunityToolkit.Mvvm.Messaging;
+using HandyControl.Themes;
+using WPFTemplate.Data;
+using WPFTemplate.UserControl;
 
-namespace WPFTemplate.Layout
+namespace WPFTemplate.Layout;
+
+/// <summary>
+/// NonClientAreaContent.xaml 的交互逻辑
+/// </summary>
+public partial class NonClientAreaContent
 {
-    /// <summary>
-    /// NonClientAreaContent.xaml 的交互逻辑
-    /// </summary>
-    public partial class NonClientAreaContent : Page
+    public NonClientAreaContent()
     {
-        public NonClientAreaContent()
+        InitializeComponent();
+    }
+
+    private void ButtonConfig_OnClick(object sender, RoutedEventArgs e) => PopupConfig.IsOpen = true;
+
+    private void ButtonSkins_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (e.OriginalSource is Button button && button.Tag is ApplicationTheme tag)
         {
-            InitializeComponent();
+            PopupConfig.IsOpen = false;
+            if (tag.Equals(GlobalData.Config.Theme)) return;
+            GlobalData.Config.Theme = tag;
+            GlobalData.Save();
+            ((App)Application.Current).UpdateSkin(tag);
+            WeakReferenceMessenger.Default.Send(new MessageToken.SkinUpdated(tag), nameof(MessageToken.SkinUpdated));
         }
     }
+
+    private void MenuAbout_OnClick(object sender, RoutedEventArgs e)
+    {
+        new AboutWindow
+        {
+            Owner = Application.Current.MainWindow
+        }.ShowDialog();
+    }
 }
+
