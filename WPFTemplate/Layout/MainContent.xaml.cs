@@ -3,13 +3,14 @@ using HandyControl.Tools.Extension;
 using System.Windows;
 using CommunityToolkit.Mvvm.Messaging;
 using WPFTemplate.Data;
+using WPFTemplate.ViewsModel;
 
 namespace WPFTemplate.Layout;
 
 /// <summary>
 /// MainContent.xaml 的交互逻辑
 /// </summary>
-public partial class MainContent 
+public partial class MainContent
 {
 
     private bool _isFull;
@@ -17,6 +18,7 @@ public partial class MainContent
     {
         InitializeComponent();
         WeakReferenceMessenger.Default.Register<MainContent, MessageToken.FullSwitch, string>(this, nameof(MessageToken.FullSwitch), (r, m) => this.FullSwitch(m.IsFull));
+        DataContext = new MainContentViewsModel();
     }
     private void FullSwitch(bool isFull)
     {

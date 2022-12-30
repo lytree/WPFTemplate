@@ -25,8 +25,7 @@ public class LeftMainContentViewsModel : ObservableRecipient
     {
         this.ContextItemList = new List<LeftItemContent>
         {
-            new
-                LeftItemContent("ImageStack_16x","img","img",false)
+            new LeftItemContent("ImageStack_16x","img","img",false)
         };
 
     }

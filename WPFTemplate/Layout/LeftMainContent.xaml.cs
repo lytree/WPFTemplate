@@ -26,11 +26,7 @@ public partial class LeftMainContent
         InitializeComponent();
         DataContext = new LeftMainContentViewsModel();
     }
-   
-    private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
+    
    
 }
 
