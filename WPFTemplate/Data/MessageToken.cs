@@ -8,9 +8,11 @@ using HandyControl.Themes;
 namespace WPFTemplate.Data
 {
 
-    class MessageToken
+    public class MessageToken
     {
         public static readonly string Home = nameof(Home);
+
+
         public sealed class ClearLeftSelected
         {
             public ClearLeftSelected(object obj)
@@ -20,7 +22,7 @@ namespace WPFTemplate.Data
 
             public object Obj { get; set; }
         }
-
+        //功能区域变更
         public sealed class LoadShowContent
         {
             public LoadShowContent(object obj)
@@ -30,7 +32,7 @@ namespace WPFTemplate.Data
 
             public object Obj { get; set; }
         }
-
+        //皮肤变更
 
         public sealed class SkinUpdated
         {
@@ -41,7 +43,7 @@ namespace WPFTemplate.Data
 
             public ApplicationTheme Theme { get; set; }
         }
-
+        //全屏切换
         public sealed class FullSwitch
         {
             public FullSwitch(bool isFull)

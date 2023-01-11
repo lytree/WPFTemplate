@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WPFTemplate"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:viewsModel="clr-namespace:WPFTemplate.ViewsModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -20,6 +21,7 @@
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <viewsModel:ViewModelLocator x:Key="Locator" />
             <hc:EnumDataProvider x:Key="ShowAnimations" Type="hc:ShowAnimation"/>
             <hc:EnumDataProvider x:Key="HatchStyles" Type="hc:HatchStyle"/>
         </ResourceDictionary>

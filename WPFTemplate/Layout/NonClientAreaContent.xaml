@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:local="clr-namespace:WPFTemplate.Layout" mc:Ignorable="d">
-	<Grid.ColumnDefinitions>
+    <!--软件顶栏-->
+    <Grid.ColumnDefinitions>
         <ColumnDefinition/>
         <ColumnDefinition Width="Auto"/>
     </Grid.ColumnDefinitions>

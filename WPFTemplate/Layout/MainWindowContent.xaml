@@ -7,19 +7,26 @@
       xmlns:local="clr-namespace:WPFTemplate.Layout"
       mc:Ignorable="d" 
       BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}" Background="{StaticResource CloudDrawingBrush}">
+    <!--主体部分-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="ColumnDefinitionLeft" Width="240" MinWidth="240" MaxWidth="400"/>
             <ColumnDefinition MinWidth="200"/>
         </Grid.ColumnDefinitions>
+        <!--侧边栏出现按钮-->
         <Button x:Name="ButtonShiftOut" Click="OnLeftMainContentShiftOut" hc:IconElement.Geometry="{StaticResource LeftGeometry}" Padding="8 8 0 8" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 26 -16 0" Style="{StaticResource ButtonIconCircular}" />
-        <local:MainContent Grid.Column="1" x:Name="MainContent" />
+        <!--侧边栏隐藏按钮-->       
+        <Button Grid.Column="0" x:Name="ButtonShiftIn" Visibility="Collapsed" Click="OnLeftMainContentShiftIn" hc:IconElement.Geometry="{StaticResource RightGeometry}" Padding="8 8 0 8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-12 26 0 0" Style="{StaticResource ButtonIconCircular}" />
+        <!--左边栏-->
         <local:LeftMainContent Grid.Column="0" x:Name="LeftMainContent">
             <UIElement.RenderTransform>
                 <TranslateTransform />
             </UIElement.RenderTransform>
         </local:LeftMainContent>
+        <!--主体部分-->
+        <local:MainContent Grid.Column="1" x:Name="MainContent" />
+
         <GridSplitter x:Name="GridSplitter" Margin="0,26,0,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
-        <Button Grid.Column="0" x:Name="ButtonShiftIn" Visibility="Collapsed" Click="OnLeftMainContentShiftIn" hc:IconElement.Geometry="{StaticResource RightGeometry}" Padding="8 8 0 8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-12 26 0 0" Style="{StaticResource ButtonIconCircular}" />
+
     </Grid>
 </Border>

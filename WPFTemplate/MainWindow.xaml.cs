@@ -33,8 +33,9 @@ namespace WPFTemplate
         }
         protected override void OnContentRendered(EventArgs e)
         {
-
+            //顶部菜单栏
             NonClientAreaContent = new NonClientAreaContent();
+            //主题部分
             ControlMain.Content = new MainWindowContent();
             base.OnContentRendered(e);
         }

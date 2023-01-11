@@ -27,7 +27,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <ListBox Name="ListBoxDemo" Padding="0" ScrollViewer.CanContentScroll="False"
+                <ListBox SelectionChanged="ListBoxDemo_OnSelectionChanged"  Name="ListBoxDemo" Padding="0" ScrollViewer.CanContentScroll="False"
                          VirtualizingStackPanel.IsVirtualizing="True"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" 
                          ItemsSource="{Binding ContextItemList}" BorderThickness="0" SelectionMode="Single"
                          Style="{StaticResource ListBoxTransparent}">
@@ -46,8 +46,14 @@
                     <ListBox.GroupStyle>
                         <GroupStyle ContainerStyle="{StaticResource LeftGroupItemStyle}" />
                     </ListBox.GroupStyle>
+                    <hc:Interaction.Triggers>
+                        <hc:EventTrigger EventName="SelectionChanged">
+                            <hc:EventToCommand Command="{Binding SwitchContentCommandCmd}" PassEventArgsToCommand="True" />
+                        </hc:EventTrigger>
+                    </hc:Interaction.Triggers>
                 </ListBox>
             </Grid>
+
         </hc:SimplePanel>
     </DockPanel>
 </Border>

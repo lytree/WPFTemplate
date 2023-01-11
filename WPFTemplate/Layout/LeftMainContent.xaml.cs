@@ -25,8 +25,14 @@ public partial class LeftMainContent
     {
         InitializeComponent();
         DataContext = new LeftMainContentViewsModel();
+
     }
-    
-   
+
+
+    private void ListBoxDemo_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        Console.WriteLine("测试");
+
+    }
 }
 

@@ -19,6 +19,7 @@ public partial class MainWindowContent
         InitializeComponent();
     }
 
+    //左边栏出现
     private void OnLeftMainContentShiftOut(object sender, RoutedEventArgs e)
     {
         ButtonShiftOut.Collapse();
@@ -46,7 +47,7 @@ public partial class MainWindowContent
             ButtonShiftIn.Show();
         }
     }
-
+    //左边栏隐藏
     private void OnLeftMainContentShiftIn(object sender, RoutedEventArgs e)
     {
         ButtonShiftIn.Collapse();

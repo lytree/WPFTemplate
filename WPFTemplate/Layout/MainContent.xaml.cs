@@ -4,6 +4,9 @@ using System.Windows;
 using CommunityToolkit.Mvvm.Messaging;
 using WPFTemplate.Data;
 using WPFTemplate.ViewsModel;
+using static WPFTemplate.Data.MessageToken;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace WPFTemplate.Layout;
 
@@ -18,8 +21,10 @@ public partial class MainContent
     {
         InitializeComponent();
         WeakReferenceMessenger.Default.Register<MainContent, MessageToken.FullSwitch, string>(this, nameof(MessageToken.FullSwitch), (r, m) => this.FullSwitch(m.IsFull));
-        DataContext = new MainContentViewsModel();
+        DataContext = ViewModelLocator.Instance.Main;
     }
+    
+
     private void FullSwitch(bool isFull)
     {
         if (_isFull == isFull)
