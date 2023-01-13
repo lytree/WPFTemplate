@@ -11,7 +11,7 @@ namespace WPFTemplate.Data
     public class MessageToken
     {
         public static readonly string Home = nameof(Home);
-
+        public static readonly string GlobalSeeting = nameof(GlobalSeeting);
 
         public sealed class ClearLeftSelected
         {
