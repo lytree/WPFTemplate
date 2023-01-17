@@ -12,13 +12,16 @@ namespace WPFTemplate.Configuration.Repository
     {
         public DbSet<MenuConfig> MenuConfigurationsRepository { get; set; }
 
-        // public SQLiteDefaultContext(DbContextOptions<SQLiteDefaultContext> option) : base(option) { }
+        public DbSet<OptionGroup> OptionGroupsRepository { get; set; }
+
+        public DbSet<OptionConfig> OptionConfigsRepository { get; set; }
+ 
         public ConfigContext() { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            
-            options.UseSqlite("Data Source=wpf.db");
+
+            options.UseSqlite("Data Source=config.db");
         }
 
     }

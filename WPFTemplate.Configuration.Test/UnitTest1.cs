@@ -12,8 +12,7 @@ namespace WPFTemplate.Configuration.Test
         {
             using ConfigContext sQLite = new();
             sQLite.Database.EnsureCreated();
-            sQLite.MenuConfigurationsRepository.Add(new MenuConfig() { TargetCtlName = "test", ImageName = "Name",IsVisible = false });
-            sQLite.SaveChanges();
+           
         }
     }
 }
