@@ -27,7 +27,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <ListBox SelectionChanged="ListBoxDemo_OnSelectionChanged"  Name="ListBoxDemo" Padding="0" ScrollViewer.CanContentScroll="False"
+                <ListBox  Name="ListBoxDemo" Padding="0" ScrollViewer.CanContentScroll="False"
                          VirtualizingStackPanel.IsVirtualizing="True"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" 
                          ItemsSource="{Binding ContextItemList}" BorderThickness="0" SelectionMode="Single"
                          Style="{StaticResource ListBoxTransparent}">

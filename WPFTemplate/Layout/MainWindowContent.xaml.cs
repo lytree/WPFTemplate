@@ -34,7 +34,7 @@ public partial class MainWindowContent
 
         LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
 
-        void OnAnimationCompleted(object _, EventArgs args)
+        void OnAnimationCompleted(object? _, EventArgs args)
         {
             animation.Completed -= OnAnimationCompleted;
             LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
@@ -60,7 +60,7 @@ public partial class MainWindowContent
         animation.Completed += OnAnimationCompleted;
         LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
 
-        void OnAnimationCompleted(object _, EventArgs args)
+        void OnAnimationCompleted(object? _, EventArgs args)
         {
             animation.Completed -= OnAnimationCompleted;
             LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
