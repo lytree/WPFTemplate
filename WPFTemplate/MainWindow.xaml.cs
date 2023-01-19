@@ -25,19 +25,22 @@ namespace WPFTemplate
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow 
+    public partial class MainWindow
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
         protected override void OnContentRendered(EventArgs e)
         {
+            base.OnContentRendered(e);
             //顶部菜单栏
             NonClientAreaContent = new NonClientAreaContent();
             //主题部分
             ControlMain.Content = new MainWindowContent();
-            base.OnContentRendered(e);
+            WeakReferenceMessenger.Default.Send(new MessageToken.FullSwitch(true), nameof(MessageToken.FullSwitch));
+            WeakReferenceMessenger.Default.Send(new MessageToken.LoadShowContent(AssemblyHelper.CreateInternalInstance($"Views.{MessageToken.Home}")), nameof(MessageToken.LoadShowContent));
         }
 
         protected override void OnClosing(CancelEventArgs e)

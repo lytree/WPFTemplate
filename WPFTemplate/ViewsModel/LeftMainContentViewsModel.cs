@@ -20,7 +20,7 @@ namespace WPFTemplate.ViewsModel;
 
 public class LeftMainContentViewsModel : ObservableRecipient
 {
-    public MenuItemContent MenuItemContentCurrent { get; }
+    public MenuItemContent MenuItemContentCurrent { get; set; }
     public List<MenuItemContent> ContextItemList { get; set; }
     public RelayCommand OpenHomeCmd => new(OpenHome);
 
@@ -30,7 +30,7 @@ public class LeftMainContentViewsModel : ObservableRecipient
     {
         this.ContextItemList = new List<MenuItemContent>
         {
-            new MenuItemContent("ImageStack_16x","img","img","Image",false)
+           
         };
 
         UpdateLeftContent();

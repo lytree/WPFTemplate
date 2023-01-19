@@ -9,6 +9,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using WPFTemplate.Data;
 using WPFTemplate.Layout;
+using WPFTemplate.Views;
 using static WPFTemplate.Data.MessageToken;
 
 namespace WPFTemplate.ViewsModel
@@ -17,6 +18,7 @@ namespace WPFTemplate.ViewsModel
     {
         private object _contentTitle;
         private object _subContent;
+
         public object SubContent
         {
             get => _subContent;
@@ -32,10 +34,15 @@ namespace WPFTemplate.ViewsModel
             set => SetProperty(ref _contentTitle, value);
 
         }
+
+       
         public MainContentViewsModel()
         {
             UpdateMainContent();
         }
+
+        
+
         private void UpdateMainContent()
         {
             Messenger.Register<MainContentViewsModel, LoadShowContent, string>(this, nameof(LoadShowContent), (r, obj) =>

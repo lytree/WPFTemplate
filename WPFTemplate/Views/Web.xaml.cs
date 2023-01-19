@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WPFTemplate.Views
 {
     /// <summary>
-    /// GlobalSeeting.xaml 的交互逻辑
+    /// Web.xaml 的交互逻辑
     /// </summary>
-    public partial class GlobalSeeting 
+    public partial class Web 
     {
-        public GlobalSeeting()
+        public Web()
         {
             InitializeComponent();
         }

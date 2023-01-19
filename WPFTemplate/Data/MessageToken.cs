@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Messaging;
 using HandyControl.Themes;
+using WPFTemplate.ViewsModel;
 
 namespace WPFTemplate.Data
 {
@@ -54,5 +56,19 @@ namespace WPFTemplate.Data
             public bool IsFull { get; set; }
         }
 
+        public sealed class WindowsSize
+        {
+            public WindowsSize(double width, double height,bool isChange)
+            {
+                WindowsHeight=height;
+                WindowsWidth=width;
+                IsChange=isChange;
+            }
+
+
+            public double WindowsHeight { get; set; }
+            public double WindowsWidth { get; set; }
+            public bool IsChange { get; set; }
+        }
     }
 }

@@ -11,6 +11,16 @@ namespace WPFTemplate.Configuration.Test
         public void Test1()
         {
             using ConfigContext sQLite = new();
+            sQLite.MenuConfigurationsRepository.Add(new MenuConfig()
+            {
+                IconName = "web",
+                TargetCtlName = "web",
+                Name = "Name",
+                QueriesText = "web«∂»Î",
+                IsVisible = true,
+            });
+            sQLite.SaveChanges();
+
             sQLite.Database.Migrate();
            
         }
