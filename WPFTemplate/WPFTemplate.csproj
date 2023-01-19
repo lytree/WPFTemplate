@@ -469,8 +469,12 @@
 		</Resource>
 	</ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\WPFTemplate.Configuration\WPFTemplate.Configuration.csproj" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.5.0" />
 		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="HandyControls" Version="3.4.4" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />

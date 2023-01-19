@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace WPFTemplate.Configuration.Entity
 {
     [Table("option_group")]
-    public class OptionGroup
+    public class OptionGroup: BaseEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,9 +17,9 @@ namespace WPFTemplate.Configuration.Entity
         [Column("group_key",TypeName="varchar(200)")]
         public string GroupKey { get; set; }
         [Column("group_name",TypeName="varchar(200)")]
-        public string GroupName { get; set; }
+        public string? GroupName { get; set; }
         [Column("group_desc",TypeName="varchar(200)")]
-        public string GroupDesc { get; set; }
+        public string? GroupDesc { get; set; }
         [Column("group_type",TypeName="int")]
         public int? GroupType { get; set; }
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace WPFTemplate.Configuration.Entity
 {
     [Table("option_config")]
-    public class OptionConfig
+    public class OptionConfig: BaseEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -49,5 +49,6 @@ namespace WPFTemplate.Configuration.Entity
          */
         [Column("option_desc")]
         public string? OptionDesc { get; set; }
+
     }
 }

@@ -20,17 +20,17 @@ namespace WPFTemplate.ViewsModel;
 
 public class LeftMainContentViewsModel : ObservableRecipient
 {
-    public LeftItemContent LeftItemContentCurrent { get; private set; }
-    public List<LeftItemContent> ContextItemList { get; set; }
+    public MenuItemContent MenuItemContentCurrent { get; }
+    public List<MenuItemContent> ContextItemList { get; set; }
     public RelayCommand OpenHomeCmd => new(OpenHome);
 
     public RelayCommand<SelectionChangedEventArgs> SwitchContentCommandCmd => new(SwitchContentCommand);
 
     public LeftMainContentViewsModel()
     {
-        this.ContextItemList = new List<LeftItemContent>
+        this.ContextItemList = new List<MenuItemContent>
         {
-            new LeftItemContent("ImageStack_16x","img","img","Image",false)
+            new MenuItemContent("ImageStack_16x","img","img","Image",false)
         };
 
         UpdateLeftContent();
@@ -68,16 +68,16 @@ public class LeftMainContentViewsModel : ObservableRecipient
     private void SwitchContentCommand(SelectionChangedEventArgs e)
     {
         if (e.AddedItems.Count == 0) return;
-        if (e.AddedItems[0] is LeftItemContent item)
+        if (e.AddedItems[0] is MenuItemContent item)
         {
-            if (Equals(LeftItemContentCurrent, item)) return;
+            if (Equals(MenuItemContentCurrent, item)) return;
             SwitchContentCommand(item);
         }
     }
 
-    private void SwitchContentCommand(LeftItemContent item)
+    private void SwitchContentCommand(MenuItemContent item)
     {
-        LeftItemContentCurrent = item;
+        MenuItemContentCurrent = item;
         ViewModelLocator.Instance.Main.ContentTitle = item.Name;
         var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
         var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");

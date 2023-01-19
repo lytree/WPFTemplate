@@ -11,7 +11,7 @@ namespace WPFTemplate.Configuration.Test
         public void Test1()
         {
             using ConfigContext sQLite = new();
-            sQLite.Database.EnsureCreated();
+            sQLite.Database.Migrate();
            
         }
     }
