@@ -13,7 +13,9 @@ namespace WPFTemplate.Data.AutoMapper.MapperProfile
     {
         public MenuProfile()
         {
-            CreateMap<MenuConfig, MenuItemContent>();
+            CreateMap<MenuConfig, MenuItemContent>()
+                .ForMember(dest => dest.ImageName, option => option.MapFrom(src => src.IconName))
+                .ReverseMap();
         }
     }
 }

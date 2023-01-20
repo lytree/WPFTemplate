@@ -54,7 +54,9 @@ namespace WPFTemplate
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+               
             }
+
         }
 
         protected override void OnExit(ExitEventArgs e)

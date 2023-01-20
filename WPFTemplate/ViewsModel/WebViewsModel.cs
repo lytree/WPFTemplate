@@ -1,21 +1,21 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using WPFTemplate.Data;
 
 namespace WPFTemplate.ViewsModel
 {
-
-    public class HomeViewsModel : ObservableRecipient
+    public class WebViewsModel : ObservableRecipient
     {
+        
         private double _contentHeight;
         private double _contentWidth;
 
-        public HomeViewsModel()
+        public WebViewsModel()
         {
             UpdateMainContentSize();
         }
@@ -23,8 +23,8 @@ namespace WPFTemplate.ViewsModel
         private void UpdateMainContentSize()
         {
 
-            Messenger.Register<HomeViewsModel, MessageToken.WindowsSize, string>(this,
-                nameof(HomeViewsModel),
+            Messenger.Register<WebViewsModel, MessageToken.WindowsSize, string>(this,
+                nameof(WebViewsModel),
                 (r, m) =>
                 {
                     {

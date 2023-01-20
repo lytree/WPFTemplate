@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFTemplate.Data;
+using WPFTemplate.ViewsModel;
 
 namespace WPFTemplate.Views
 {
@@ -23,6 +26,14 @@ namespace WPFTemplate.Views
         public Web()
         {
             InitializeComponent();
+            DataContext = new WebViewsModel();
+            SizeChanged += Web_SizeChanged;
+        }
+
+        private void Web_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WeakReferenceMessenger.Default.Send(new MessageToken.WindowsSize(ActualWidth,ActualHeight,true), nameof(WebViewsModel));
+
         }
     }
 }

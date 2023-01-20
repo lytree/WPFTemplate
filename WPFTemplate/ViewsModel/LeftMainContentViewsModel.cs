@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Threading;
+using Autofac;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using HandyControl.Properties.Langs;
 using WPFTemplate.Data;
 using WPFTemplate.Data.Model;
+using WPFTemplate.Service;
 using WPFTemplate.Tools.Helper;
 using static WPFTemplate.Data.MessageToken;
 
@@ -28,10 +30,8 @@ public class LeftMainContentViewsModel : ObservableRecipient
 
     public LeftMainContentViewsModel()
     {
-        this.ContextItemList = new List<MenuItemContent>
-        {
-           
-        };
+        var dataService = ViewModelLocator.Instance.Container.Resolve<DataService>();
+        this.ContextItemList = dataService.GetMenuItemContents();
 
         UpdateLeftContent();
     }
@@ -44,11 +44,15 @@ public class LeftMainContentViewsModel : ObservableRecipient
     }
     private void UpdateLeftContent()
     {
-        //clear status
-        Messenger.Register<LeftMainContentViewsModel, LoadShowContent, string>(this, nameof(ClearLeftSelected), (r, obj) =>
-        {
-
-        });
+        // //clear status
+        // Messenger.Register<LeftMainContentViewsModel, ClearLeftSelected, string>(this, nameof(ClearLeftSelected), (r, obj) =>
+        // {
+        //     MenuItemContentCurrent = null;
+        //     foreach (var item in ContextItemList)
+        //     {
+        //         item.SelectedIndex = -1;
+        //     }
+        // });
 
         ////load items
         //DemoInfoCollection = new ObservableCollection<ContextInfoModel>();
@@ -80,7 +84,7 @@ public class LeftMainContentViewsModel : ObservableRecipient
         MenuItemContentCurrent = item;
         ViewModelLocator.Instance.Main.ContentTitle = item.Name;
         var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
-        var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
+        var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"Views.{item.TargetCtlName}");
         Messenger.Send(new MessageToken.LoadShowContent(ctl), nameof(MessageToken.LoadShowContent));
     }
 }

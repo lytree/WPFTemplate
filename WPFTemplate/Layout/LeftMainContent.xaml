@@ -34,12 +34,12 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Image Width="16" Height="16" Source="{Binding ImageName}" />
+                                <!-- <Image Width="16" Height="16" Source="{Binding ImageName}" /> -->
                                 <hc:HighlightTextBlock Margin="6,0,0,0" SourceText="{Binding Name}"
                                                    QueriesText="{Binding QueriesText}" />
-                                <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}"
-                                  VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform"
-                                  Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}" />
+                                <!-- <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" -->
+                                <!--   VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" -->
+                                <!--   Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}" /> -->
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

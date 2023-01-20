@@ -5,16 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:viewsModel="clr-namespace:WPFTemplate.ViewsModel"
-             xmlns:wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" d:DataContext="{d:DesignInstance Type=viewsModel:HomeViewsModel}"
+             xmlns:scottPlot="clr-namespace:ScottPlot;assembly=ScottPlot.WPF"
+             d:DataContext="{d:DesignInstance Type=viewsModel:HomeViewsModel}"
              mc:Ignorable="d" 
              Background="{DynamicResource SecondaryRegionBrush}">
     <Border Background="{DynamicResource RegionBrush}"
         CornerRadius="4" VerticalAlignment="Center" HorizontalAlignment="Center">
         <hc:TransitioningContentControl>
             <StackPanel Margin="32">
-                <wpf:WebView2 Width="{Binding ContentWidth}" Height="{Binding Path=ContentHeight}" Source="https://www.microsoft.com"></wpf:WebView2>
 
-                
+                <scottPlot:WpfPlot Name="wpfPlot1" MouseMove="OnMouseMove" 
+                                   MouseEnter="wpfPlot1_MouseEnter"
+                                   MouseLeave="wpfPlot1_MouseLeave" Width="{Binding ContentWidth}" Height="{Binding ContentHeight}" />
             </StackPanel>
         </hc:TransitioningContentControl>
     </Border>
